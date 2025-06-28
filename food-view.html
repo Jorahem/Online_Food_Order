@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>Margherita Pizza - Fast Food Corner</title>
+    <link rel="icon" href="img/logo.jpg" type="image/x-icon">
+    
+    <style>
+      #cont {
+        min-height: 578px;
+      }
+
+      /* Navigation styles */
+      .navbar {
+        background-color: #343a40;
+      }
+
+      .navbar-brand {
+        color: #e74c3c !important;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        color: white !important;
+        margin: 0 10px;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #e74c3c !important;
+      }
+
+      /* Footer styles */
+      .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+        margin-top: 50px;
+      }
+
+      .footer a {
+        color: #e74c3c;
+      }
+
+      .footer a:hover {
+        color: #c0392b;
+        text-decoration: none;
+      }
+
+      .food-image {
+        width: 249px;
+        height: 262px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+
+      .price-tag {
+        color: #e74c3c;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .breadcrumb-link {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .breadcrumb-link:hover {
+        color: #e74c3c;
+        text-decoration: none;
+      }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Fast Food Corner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-4" id="cont">
+        <div class="row jumbotron">
+            <div class="col-md-4">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300&h=300&fit=crop" class="food-image" alt="Margherita Pizza">
+            </div>
+            <div class="col-md-8 my-4">
+                <h3>Margherita Pizza</h3>
+                <h5 class="price-tag">Rs. 12.99/-</h5>
+                <p class="mb-0">A classic Italian pizza topped with fresh tomato sauce, mozzarella cheese, and fresh basil leaves. This traditional pizza is baked to perfection in our wood-fired oven, creating a crispy crust and melted cheese that will satisfy your cravings.</p>
+                
+                <button class="btn btn-primary my-2" onclick="addToCart()">Add to Cart</button>
+                
+                <h6 class="my-1">View</h6>
+                <div class="mx-4">
+                    <a href="menu.html#pizza" class="breadcrumb-link">
+                        <i class="fas fa-qrcode"></i>
+                        <span>All Food</span>
+                    </a>
+                </div>
+                <div class="mx-4">
+                    <a href="index.html" class="breadcrumb-link">
+                        <i class="fas fa-qrcode"></i>
+                        <span>All Category</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Fast Food Corner</h5>
+                    <p>Delicious food delivered to your doorstep. Order now and enjoy!</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@fastfoodcorner.com<br>
+                    Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 Fast Food Corner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+
+    <script>
+        function addToCart() {
+            alert('Margherita Pizza has been added to your cart!');
+            // Redirect to cart page
+            window.location.href = 'cart.html';
+        }
+    </script>
+</body>
+</html> 

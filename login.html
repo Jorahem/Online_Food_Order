@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    
+    <title>Login - Fast Food Corner</title>
+    <link rel="icon" href="img/logo.jpg" type="image/x-icon">
+    
+    <style>
+      /* Navigation styles */
+      .navbar {
+        background-color: #343a40;
+      }
+
+      .navbar-brand {
+        color: #e74c3c !important;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        color: white !important;
+        margin: 0 10px;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #e74c3c !important;
+      }
+
+      /* Login page styles */
+      .login-hero {
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                    url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=600&fit=crop') center/cover;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        margin-top: -16px;
+      }
+
+      .login-hero h1 {
+        font-size: 3rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+
+      .auth-section {
+        padding: 80px 0;
+        background-color: #f8f9fa;
+      }
+
+      .auth-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        overflow: hidden;
+      }
+
+      .auth-card .card-header {
+        background: #e74c3c;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        border: none;
+      }
+
+      .auth-card .card-body {
+        padding: 40px;
+      }
+
+      .form-control {
+        border-radius: 25px;
+        padding: 12px 20px;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s;
+      }
+
+      .form-control:focus {
+        border-color: #e74c3c;
+        box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
+      }
+
+      .btn-primary {
+        background: #e74c3c;
+        border: none;
+        border-radius: 25px;
+        padding: 12px 30px;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+
+      .btn-primary:hover {
+        background: #c0392b;
+        transform: translateY(-2px);
+      }
+
+      .btn-outline-primary {
+        color: #e74c3c;
+        border-color: #e74c3c;
+        border-radius: 25px;
+        padding: 12px 30px;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+
+      .btn-outline-primary:hover {
+        background: #e74c3c;
+        border-color: #e74c3c;
+        transform: translateY(-2px);
+      }
+
+      .auth-switch {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .auth-switch a {
+        color: #e74c3c;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .auth-switch a:hover {
+        color: #c0392b;
+      }
+
+      /* Footer styles */
+      .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+        margin-top: 50px;
+      }
+
+      .footer a {
+        color: #e74c3c;
+      }
+
+      .footer a:hover {
+        color: #c0392b;
+        text-decoration: none;
+      }
+
+      .password-toggle {
+        position: relative;
+      }
+
+      .password-toggle .form-control {
+        padding-right: 50px;
+      }
+
+      .password-toggle .toggle-password {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #6c757d;
+        cursor: pointer;
+      }
+
+      .password-toggle .toggle-password:hover {
+        color: #e74c3c;
+      }
+    </style>
+  </head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Fast Food Corner</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menu.html">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Hero -->
+  <section class="login-hero">
+    <div class="container">
+      <h1>Welcome Back</h1>
+      <p class="lead">Sign in to your account or create a new one</p>
+    </div>
+  </section>
+
+  <!-- Auth Section -->
+  <section class="auth-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <!-- Login Form -->
+        <div class="col-lg-5 col-md-6 mb-4">
+          <div class="card auth-card">
+            <div class="card-header">
+              <h3><i class="fas fa-sign-in-alt"></i> Login</h3>
+            </div>
+            <div class="card-body">
+              <form id="loginForm">
+                <div class="form-group">
+                  <label for="loginEmail">Email address</label>
+                  <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                  <label for="loginPassword">Password</label>
+                  <div class="password-toggle">
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('loginPassword')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="rememberMe">
+                  <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+              </form>
+              <div class="auth-switch">
+                <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up here</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="col-lg-5 col-md-6 mb-4" id="signupForm" style="display: none;">
+          <div class="card auth-card">
+            <div class="card-header">
+              <h3><i class="fas fa-user-plus"></i> Sign Up</h3>
+            </div>
+            <div class="card-body">
+              <form id="signupFormElement">
+                <div class="form-group">
+                  <label for="signupName">Full Name</label>
+                  <input type="text" class="form-control" id="signupName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                  <label for="signupEmail">Email address</label>
+                  <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                  <label for="signupPhone">Phone Number</label>
+                  <input type="tel" class="form-control" id="signupPhone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                  <label for="signupPassword">Password</label>
+                  <div class="password-toggle">
+                    <input type="password" class="form-control" id="signupPassword" placeholder="Create a password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('signupPassword')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="signupConfirmPassword">Confirm Password</label>
+                  <div class="password-toggle">
+                    <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm your password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('signupConfirmPassword')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                  <label class="form-check-label" for="agreeTerms">I agree to the <a href="#" style="color: #e74c3c;">Terms and Conditions</a></label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+              </form>
+              <div class="auth-switch">
+                <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+<script>
+  async function loadFooter() {
+    try {
+      const response = await fetch("footer.html");
+      const footerHtml = await response.text();
+      document.getElementById("footer-container").innerHTML = footerHtml;
+    } catch (error) {
+      console.error("Failed to load footer:", error);
+    }
+  }
+
+  loadFooter();
+</script
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+  <script>
+    // Toggle password visibility
+    function togglePassword(inputId) {
+      const input = document.getElementById(inputId);
+      const button = input.nextElementSibling;
+      const icon = button.querySelector('i');
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+
+    // Show signup form
+    function showSignup() {
+      document.getElementById('signupForm').style.display = 'block';
+      document.querySelector('.col-lg-5:first-child').style.display = 'none';
+    }
+
+    // Show login form
+    function showLogin() {
+      document.getElementById('signupForm').style.display = 'none';
+      document.querySelector('.col-lg-5:first-child').style.display = 'block';
+    }
+
+    // Login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      
+      // Simple validation
+      if (email && password) {
+        alert('Login successful! Welcome back.');
+        // Redirect to home page
+        window.location.href = 'index.html';
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+
+    // Signup form submission
+    document.getElementById('signupFormElement').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('signupName').value;
+      const email = document.getElementById('signupEmail').value;
+      const phone = document.getElementById('signupPhone').value;
+      const password = document.getElementById('signupPassword').value;
+      const confirmPassword = document.getElementById('signupConfirmPassword').value;
+      const agreeTerms = document.getElementById('agreeTerms').checked;
+      
+      // Validation
+      if (!name || !email || !phone || !password || !confirmPassword) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return;
+      }
+      
+      if (!agreeTerms) {
+        alert('Please agree to the Terms and Conditions.');
+        return;
+      }
+      
+      alert('Account created successfully! You can now login.');
+      showLogin();
+      this.reset();
+    });
+  </script>
+
+</body>
+</html> 

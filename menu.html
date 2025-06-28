@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>Menu - Fast Food Corner</title>
+    <link rel="icon" href="img/logo.jpg" type="image/x-icon">
+    
+    <style>
+      /* Navigation styles */
+      .navbar {
+        background-color: #343a40;
+      }
+
+      .navbar-brand {
+        color: #e74c3c !important;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        color: white !important;
+        margin: 0 10px;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #e74c3c !important;
+      }
+
+      /* Footer styles */
+      .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+        margin-top: 50px;
+      }
+
+      .footer a {
+        color: #e74c3c;
+      }
+
+      .footer a:hover {
+        color: #c0392b;
+        text-decoration: none;
+      }
+
+      .menu-hero {
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                    url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&h=400&fit=crop') center/cover;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        margin-top: -16px;
+      }
+
+      .menu-hero h1 {
+        font-size: 3rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+
+      .category-section {
+        padding: 60px 0;
+      }
+
+      .category-title {
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+      }
+
+      .category-title h2 {
+        color: #e74c3c;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .category-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: #e74c3c;
+      }
+
+      .food-card {
+        transition: transform 0.3s ease;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        border: none;
+      }
+
+      .food-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      }
+
+      .food-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .food-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .food-card .card-body {
+        padding: 20px;
+      }
+
+      .food-card .card-title {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .price-tag {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .food-description {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+
+      .btn-order {
+        background: #e74c3c;
+        border: none;
+        border-radius: 25px;
+        padding: 8px 20px;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+
+      .btn-order:hover {
+        background: #c0392b;
+        transform: translateY(-2px);
+      }
+
+      .btn-view {
+        background: transparent;
+        border: 2px solid #e74c3c;
+        color: #e74c3c;
+        border-radius: 25px;
+        padding: 8px 20px;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+
+      .btn-view:hover {
+        background: #e74c3c;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .category-nav {
+        background: #f8f9fa;
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .category-nav .nav-link {
+        color: #333 !important;
+        font-weight: bold;
+        margin: 0 15px;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: all 0.3s;
+      }
+
+      .category-nav .nav-link:hover,
+      .category-nav .nav-link.active {
+        background: #e74c3c;
+        color: white !important;
+      }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Fast Food Corner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Menu Hero -->
+    <section class="menu-hero">
+        <div class="container">
+            <h1>Our Delicious Menu</h1>
+            <p class="lead">Discover our wide variety of mouth-watering dishes</p>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <nav class="category-nav">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#pizza">Pizza</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#burgers">Burgers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#pasta">Pasta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#desserts">Desserts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#beverages">Beverages</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Pizza Section -->
+    <section id="pizza" class="category-section">
+        <div class="container">
+            <div class="category-title">
+                <h2>Pizza</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop" alt="Margherita Pizza">
+                        <div class="card-body">
+                            <h5 class="card-title">Margherita Pizza</h5>
+                            <div class="price-tag">Rs. 129</div>
+                            <p class="food-description">Classic Italian pizza with fresh tomato sauce, mozzarella cheese, and basil leaves.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Margherita Pizza', 12.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Margherita Pizza')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://media.istockphoto.com/id/521403691/photo/hot-homemade-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=PaISuuHcJWTEVoDKNnxaHy7L2BTUkyYZ06hYgzXmTbo=" alt="Pepperoni Pizza">
+                        <div class="card-body">
+                            <h5 class="card-title">Pepperoni Pizza</h5>
+                            <div class="price-tag">Rs. 149</div>
+                            <p class="food-description">Spicy pepperoni slices with melted cheese and our signature tomato sauce.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Pepperoni Pizza', 14.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Pepperoni Pizza')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop" alt="BBQ Chicken Pizza">
+                        <div class="card-body">
+                            <h5 class="card-title">BBQ Chicken Pizza</h5>
+                            <div class="price-tag">Rs. 169</div>
+                            <p class="food-description">BBQ sauce with grilled chicken, red onions, and melted cheese.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('BBQ Chicken Pizza', 16.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('BBQ Chicken Pizza')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://cdn.loveandlemons.com/wp-content/uploads/2023/02/vegetarian-pizza.jpg" alt="Veggie Pizza">
+                        <div class="card-body">
+                            <h5 class="card-title">Veggie Pizza</h5>
+                            <div class="price-tag">Rs. 199</div>
+                            <p class="food-description">Fresh vegetables including bell peppers, mushrooms, and olives.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Veggie Pizza', 13.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Veggie Pizza')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=400&h=300&fit=crop" alt="Supreme Pizza">
+                        <div class="card-body">
+                            <h5 class="card-title">Supreme Pizza</h5>
+                            <div class="price-tag">Rs. 199</div>
+                            <p class="food-description">Loaded with pepperoni, sausage, bell peppers, onions, and olives.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Supreme Pizza', 18.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Supreme Pizza')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=300&fit=crop" alt="Hawaiian Pizza">
+                        <div class="card-body">
+                            <h5 class="card-title">Hawaiian Pizza</h5>
+                            <div class="price-tag">Rs. 159</div>
+                            <p class="food-description">Ham and pineapple with melted cheese on our signature crust.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Hawaiian Pizza', 15.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Hawaiian Pizza')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Burgers Section -->
+    <section id="burgers" class="category-section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="category-title">
+                <h2>Burgers</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://thespiceway.com/cdn/shop/files/Signature_Savory_Classic_Burger.jpg?v=1712161801" alt="Classic Burger">
+                        <div class="card-body">
+                            <h5 class="card-title">Classic Burger</h5>
+                            <div class="price-tag">Rs. 899</div>
+                            <p class="food-description">Juicy beef patty with lettuce, tomato, cheese, and special sauce.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Classic Burger', 8.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Classic Burger')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNoZWVzZSUyMGJ1cmdlcnxlbnwwfHwwfHx8MA%3D%3D" alt="Cheese Burger">
+                        <div class="card-body">
+                            <h5 class="card-title">Cheese Burger</h5>
+                            <div class="price-tag">Rs. 999</div>
+                            <p class="food-description">Classic burger topped with melted cheddar cheese and crispy bacon.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Cheese Burger', 9.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Cheese Burger')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=400&h=300&fit=crop" alt="Chicken Burger">
+                        <div class="card-body">
+                            <h5 class="card-title">Chicken Burger</h5>
+                            <div class="price-tag">Rs. 799</div>
+                            <p class="food-description">Grilled chicken breast with fresh vegetables and mayo sauce.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Chicken Burger', 7.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Chicken Burger')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://cdn.veeg.co/app/uploads/2020/02/19143254/Pumpkin_Seed_Veggie_Burger_web_01_landscape.jpg" alt="Veggie Burger">
+                        <div class="card-body">
+                            <h5 class="card-title">Veggie Burger</h5>
+                            <div class="price-tag">Rs. 699</div>
+                            <p class="food-description">Plant-based patty with avocado, sprouts, and vegan cheese.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Veggie Burger', 6.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Veggie Burger')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://cdn.pixabay.com/photo/2022/08/29/17/45/burger-7419421_1280.jpg" alt="Double Burger">
+                        <div class="card-body">
+                            <h5 class="card-title">Double Burger</h5>
+                            <div class="price-tag">Rs. 1299</div>
+                            <p class="food-description">Two beef patties with double cheese, bacon, and special sauce.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Double Burger', 12.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Double Burger')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://stpierrebakery-com.s3.amazonaws.com/app/uploads/2021/11/Truffle-Mushroom-Burger.jpg" alt="Mushroom Burger">
+                        <div class="card-body">
+                            <h5 class="card-title">Mushroom Burger</h5>
+                            <div class="price-tag">Rs. 1099</div>
+                            <p class="food-description">Beef patty topped with sautéed mushrooms and Swiss cheese.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Mushroom Burger', 10.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Mushroom Burger')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pasta Section -->
+    <section id="pasta" class="category-section">
+        <div class="container">
+            <div class="category-title">
+                <h2>Pasta</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://www.allrecipes.com/thmb/Vg2cRidr2zcYhWGvPD8M18xM_WY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11973-spaghetti-carbonara-ii-DDMFS-4x3-6edea51e421e4457ac0c3269f3be5157.jpg" alt="Spaghetti Carbonara">
+                        <div class="card-body">
+                            <h5 class="card-title">Spaghetti Carbonara</h5>
+                            <div class="price-tag">Rs. 1199</div>
+                            <p class="food-description">Classic Italian pasta with eggs, cheese, pancetta, and black pepper.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Spaghetti Carbonara', 11.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Spaghetti Carbonara')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://www.gimmesomeoven.com/wp-content/uploads/2024/11/Chicken-Fettuccine-Alfredo-10.jpg" alt="Fettuccine Alfredo">
+                        <div class="card-body">
+                            <h5 class="card-title">Fettuccine Alfredo</h5>
+                            <div class="price-tag">Rs. 1099</div>
+                            <p class="food-description">Creamy Alfredo sauce with parmesan cheese and butter.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Fettuccine Alfredo', 10.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Fettuccine Alfredo')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://theplantbasedschool.com/wp-content/uploads/2024/01/Penne-with-arrabbiata-sauce-4.jpg" alt="Penne Arrabbiata">
+                        <div class="card-body">
+                            <h5 class="card-title">Penne Arrabbiata</h5>
+                            <div class="price-tag">Rs. 999</div>
+                            <p class="food-description">Spicy tomato sauce with garlic, chili peppers, and herbs.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Penne Arrabbiata', 9.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Penne Arrabbiata')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuRRpsnBN7NTmAQUCOTW_gawnAaFY0Rz0F-Q&s" alt="Lasagna">
+                        <div class="card-body">
+                            <h5 class="card-title">Lasagna</h5>
+                            <div class="price-tag">Rs. 1399</div>
+                            <p class="food-description">Layered pasta with meat sauce, cheese, and béchamel sauce.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Lasagna', 13.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Lasagna')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2022%2F03%2F19%2F238691-Simple-Macaroni-And-Cheese-mfs_006.jpg&w=160&q=60&c=sc&poi=auto&orient=true&h=90" alt="Mac and Cheese">
+                        <div class="card-body">
+                            <h5 class="card-title">Mac and Cheese</h5>
+                            <div class="price-tag">Rs. 899</div>
+                            <p class="food-description">Creamy macaroni with three types of cheese and breadcrumbs.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Mac and Cheese', 8.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Mac and Cheese')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://images.services.kitchenstories.io/w7kIw5bZaJP6rgq3Zj_HOouUq_U=/3840x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/R2572-picnic-final-photo-4x3.jpg" alt="Pasta Primavera">
+                        <div class="card-body">
+                            <h5 class="card-title">Pasta Primavera</h5>
+                            <div class="price-tag">Rs. 1199</div>
+                            <p class="food-description">Fresh seasonal vegetables with light cream sauce and herbs.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Pasta Primavera', 11.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Pasta Primavera')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desserts Section -->
+    <section id="desserts" class="category-section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="category-title">
+                <h2>Desserts</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://www.allrecipes.com/thmb/AT1d8rYAvL-BtQxXC9LyqNNMCFo=/0x512/filters:no_upscale():max_bytes(150000):strip_icc()/17981-one-bowl-chocolate-cake-iii-DDMFS-beauty-4x3-d2e182087e4b42a3a281a0a355ea60d1.jpg" alt="Chocolate Cake">
+                        <div class="card-body">
+                            <h5 class="card-title">Chocolate Cake</h5>
+                            <div class="price-tag">Rs. 699</div>
+                            <p class="food-description">Rich chocolate cake with chocolate ganache and fresh berries.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Chocolate Cake', 6.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Chocolate Cake')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://www.jocooks.com/wp-content/uploads/2018/11/cheesecake-1-22-500x500.jpg" alt="Cheesecake">
+                        <div class="card-body">
+                            <h5 class="card-title">Cheesecake</h5>
+                            <div class="price-tag">Rs. 799</div>
+                            <p class="food-description">Creamy New York style cheesecake with berry compote.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Cheesecake', 7.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Cheesecake')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2024/09/THUMB-VIDEO-2_rev1-56.jpeg?im=Resize,width=742;" alt="Tiramisu">
+                        <div class="card-body">
+                            <h5 class="card-title">Tiramisu</h5>
+                            <div class="price-tag">Rs. 899</div>
+                            <p class="food-description">Italian dessert with coffee-soaked ladyfingers and mascarpone cream.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Tiramisu', 8.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Tiramisu')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Ice_cream_with_whipped_cream%2C_chocolate_syrup%2C_and_a_wafer_%28cropped%29.jpg" alt="Ice Cream">
+                        <div class="card-body">
+                            <h5 class="card-title">Ice Cream</h5>
+                            <div class="price-tag">Rs. 499</div>
+                            <p class="food-description">Three scoops of premium ice cream with toppings of your choice.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Ice Cream', 4.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Ice Cream')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://www.southernliving.com/thmb/bbDY1d_ySIrCFcq8WNBkR-3x6pU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2589601_Mailb_Mailbox_Apple_Pie_003-da802ff7a8984b2fa9aa0535997ab246.jpg" alt="Apple Pie">
+                        <div class="card-body">
+                            <h5 class="card-title">Apple Pie</h5>
+                            <div class="price-tag">Rs. 599</div>
+                            <p class="food-description">Warm apple pie with cinnamon and served with vanilla ice cream.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Apple Pie', 5.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Apple Pie')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2G_4QWYud1SlNxRgthmap9GYuhnZrtZJgUw&s" alt="Brownie">
+                        <div class="card-body">
+                            <h5 class="card-title">Brownie</h5>
+                            <div class="price-tag">Rs. 399</div>
+                            <p class="food-description">Fudgy chocolate brownie with walnuts and chocolate chips.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Brownie', 3.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Brownie')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beverages Section -->
+    <section id="beverages" class="category-section">
+        <div class="container">
+            <div class="category-title">
+                <h2>Beverages</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://static.wixstatic.com/media/8f1abd_80bf432a005041b59c2a7fa1960ce71e~mv2.jpeg/v1/fill/w_8499,h_3727,al_c,q_90/8f1abd_80bf432a005041b59c2a7fa1960ce71e~mv2.jpeg" alt="Soft Drinks">
+                        <div class="card-body">
+                            <h5 class="card-title">Soft Drinks</h5>
+                            <div class="price-tag">Rs. 299</div>
+                            <p class="food-description">Choice of Coke, Pepsi, Sprite, or Fanta. Available in regular or diet.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Soft Drinks', 2.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Soft Drinks')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=300&fit=crop" alt="Fresh Juice">
+                        <div class="card-body">
+                            <h5 class="card-title">Fresh Juice</h5>
+                            <div class="price-tag">Rs. 499</div>
+                            <p class="food-description">Freshly squeezed orange, apple, or mixed fruit juice.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Fresh Juice', 4.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Fresh Juice')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://i2.wp.com/bakingmischief.com/wp-content/uploads/2022/03/coffee-milkshake-image-684x1024.jpg" alt="Milkshake">
+                        <div class="card-body">
+                            <h5 class="card-title">Milkshake</h5>
+                            <div class="price-tag">Rs. 599</div>
+                            <p class="food-description">Creamy milkshake in chocolate, vanilla, or strawberry flavor.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Milkshake', 5.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Milkshake')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSNw7oOeCCCIv_D1ok78I61XqgUl1ZU_S2DA&s" alt="Coffee">
+                        <div class="card-body">
+                            <h5 class="card-title">Coffee</h5>
+                            <div class="price-tag">Rs. 399</div>
+                            <p class="food-description">Hot or iced coffee. Available in regular, decaf, or flavored.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Coffee', 3.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Coffee')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNKCmlfDaaexMv2w8k5qS82cS9qCWTiDprpA&s" alt="Smoothie">
+                        <div class="card-body">
+                            <h5 class="card-title">Smoothie</h5>
+                            <div class="price-tag">Rs. 699</div>
+                            <p class="food-description">Blended fruit smoothie with yogurt and honey. Choose your flavor.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Smoothie', 6.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Smoothie')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card food-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnizjjezTC5vQr8VUA_EwaX4YgfDFN5sAg_A&s" alt="Tea">
+                        <div class="card-body">
+                            <h5 class="card-title">Tea</h5>
+                            <div class="price-tag">Rs. 299</div>
+                            <p class="food-description">Hot or iced tea. Available in black, green, or herbal varieties.</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-order" onclick="addToCart('Tea', 2.99)">Add to Cart</button>
+                                <button class="btn btn-view" onclick="viewDetails('Tea')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div id="footer-container"></div>
+<script>
+  async function loadFooter() {
+    try {
+      const response = await fetch("footer.html");
+      const footerHtml = await response.text();
+      document.getElementById("footer-container").innerHTML = footerHtml;
+    } catch (error) {
+      console.error("Failed to load footer:", error);
+    }
+  }
+
+  loadFooter();
+</script>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for category navigation
+        document.querySelectorAll('.category-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.category-section');
+            const navLinks = document.querySelectorAll('.category-nav .nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        function addToCart(itemName, price) {
+            alert(itemName + ' has been added to your cart! Price: Rs. ' + price);
+            // Redirect to cart page
+            window.location.href = 'cart.html';
+        }
+
+        function viewDetails(itemName) {
+            alert('Viewing details for ' + itemName);
+            // Redirect to food detail page
+            window.location.href = 'food-view.html';
+        }
+    </script>
+</body>
+</html>

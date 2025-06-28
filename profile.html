@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>My Profile - Fast Food Corner</title>
+    <link rel="icon" href="img/logo.jpg" type="image/x-icon">
+    
+    <style>
+      /* Navigation styles */
+      .navbar {
+        background-color: #343a40;
+      }
+
+      .navbar-brand {
+        color: #e74c3c !important;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        color: white !important;
+        margin: 0 10px;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #e74c3c !important;
+      }
+
+      /* Footer styles */
+      .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+        margin-top: 50px;
+      }
+
+      .footer a {
+        color: #e74c3c;
+      }
+
+      .footer a:hover {
+        color: #c0392b;
+        text-decoration: none;
+      }
+
+      .profile-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 40px 0;
+        margin-bottom: 30px;
+      }
+
+      .profile-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid white;
+        object-fit: cover;
+      }
+
+      .profile-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+      }
+
+      .profile-card .card-header {
+        background: #e74c3c;
+        color: white;
+        border-radius: 15px 15px 0 0 !important;
+        border: none;
+      }
+
+      .order-history-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .order-history-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .status-badge {
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      .status-delivered {
+        background-color: #d4edda;
+        color: #155724;
+      }
+
+      .status-processing {
+        background-color: #fff3cd;
+        color: #856404;
+      }
+
+      .status-pending {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Fast Food Corner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <div class="profile-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&crop=face" class="profile-avatar" alt="Profile Picture">
+                </div>
+                <div class="col-md-9">
+                    <h2>John Doe</h2>
+                    <p class="lead mb-0">john.doe@example.com</p>
+                    <p class="mb-0">Member since January 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Profile Information -->
+            <div class="col-lg-4">
+                <div class="card profile-card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-user"></i> Profile Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="profileForm">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" value="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" value="john.doe@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" value="+1 (555) 123-4567">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea class="form-control" id="address" rows="3">123 Main Street, City, State 12345</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card profile-card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-lock"></i> Change Password</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="passwordForm">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" class="form-control" id="currentPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" class="form-control" id="newPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" class="form-control" id="confirmPassword">
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary btn-block">Change Password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order History -->
+            <div class="col-lg-8">
+                <div class="card profile-card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-history"></i> Order History</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Order 1 -->
+                        <div class="order-history-card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-3">
+                                        <strong>Order #12345</strong>
+                                        <br>
+                                        <small class="text-muted">March 15, 2024</small>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="mb-0">Margherita Pizza, Classic Burger</p>
+                                        <small class="text-muted">2 items</small>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <strong>Rs. 34.97</strong>
+                                    </div>
+                                    <div class="col-md-3 text-right">
+                                        <span class="status-badge status-delivered">Delivered</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 2 -->
+                        <div class="order-history-card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-3">
+                                        <strong>Order #12344</strong>
+                                        <br>
+                                        <small class="text-muted">March 10, 2024</small>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="mb-0">Pepperoni Pizza, French Fries</p>
+                                        <small class="text-muted">2 items</small>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <strong>Rs. 28.98</strong>
+                                    </div>
+                                    <div class="col-md-3 text-right">
+                                        <span class="status-badge status-delivered">Delivered</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 3 -->
+                        <div class="order-history-card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-3">
+                                        <strong>Order #12343</strong>
+                                        <br>
+                                        <small class="text-muted">March 5, 2024</small>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="mb-0">BBQ Chicken Pizza</p>
+                                        <small class="text-muted">1 item</small>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <strong>Rs. 16.99</strong>
+                                    </div>
+                                    <div class="col-md-3 text-right">
+                                        <span class="status-badge status-delivered">Delivered</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 4 -->
+                        <div class="order-history-card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-3">
+                                        <strong>Order #12342</strong>
+                                        <br>
+                                        <small class="text-muted">March 1, 2024</small>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="mb-0">Veggie Pizza, Garlic Bread</p>
+                                        <small class="text-muted">2 items</small>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <strong>Rs. 22.98</strong>
+                                    </div>
+                                    <div class="col-md-3 text-right">
+                                        <span class="status-badge status-delivered">Delivered</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <nav aria-label="Order history pages">
+                            <ul class="pagination justify-content-center mt-4">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Fast Food Corner</h5>
+                    <p>Delicious food delivered to your doorstep. Order now and enjoy!</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@fastfoodcorner.com<br>
+                    Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 Fast Food Corner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+    
+    <script>
+        // Profile form submission
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Profile updated successfully!');
+        });
+
+        // Password form submission
+        document.getElementById('passwordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (newPassword !== confirmPassword) {
+                alert('New passwords do not match!');
+                return;
+            }
+            
+            if (newPassword.length < 6) {
+                alert('Password must be at least 6 characters long!');
+                return;
+            }
+            
+            alert('Password changed successfully!');
+            this.reset();
+        });
+    </script>
+</body>
+</html> 
